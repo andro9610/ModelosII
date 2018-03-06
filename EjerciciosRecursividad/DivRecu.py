@@ -1,10 +1,8 @@
 def divRecu(dividen, divisor):
-    if(dividen<divisor):
+    if(divisor != 0):
+       if(dividen<divisor):
         return 0;
+       else:
+         return 1+ divRecu(dividen-divisor,divisor);
     else:
-        return 1+divRecu(dividen-divisor,divisor);
-
-
-dividen=int(input("\n Ingrese el divideno:"))
-divisor=int(input("\n Ingrese el dividendo"))
-print("La division es:"+str(divRecu(dividen, divisor)));
+           print('Error por división entre 0')
