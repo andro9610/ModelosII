@@ -1,7 +1,7 @@
 #algoritmo de fibonacci Recursivo
 def fibonacci(numero):
     if numero == 0:
-        return 0
+        return 1
     if numero == 1:
         return 1
     if numero > 1:
