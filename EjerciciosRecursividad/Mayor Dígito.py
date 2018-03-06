@@ -6,5 +6,3 @@ def ordena(n):
             return ordena(n/10)
         else:
             return int(n%10)
-
-print(ordena(597))
