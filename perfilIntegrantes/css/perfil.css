@@ -1,0 +1,67 @@
+body{
+    background-color: black;
+    align-content: center;
+    font-family: cursive;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.imagen{
+    width: 20%;
+    height: 20%;
+    border-radius: 100%;
+    border-color:whitesmoke;
+    border-style: solid;
+    border-width: large;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.icono{
+    width: 2.5%;
+    height: 2.5%;
+}
+
+p{
+    font-size: 20px;
+    color: whitesmoke;
+    text-align: center;
+}
+
+footer{
+    font-size: 16;
+    position: absolute;
+    color: whitesmoke;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Titulo{
+    color:green;
+    font-size: 35px;
+    text-align: center;
+}
+
+.boton{
+	
+	position: relative;
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 16px;
+    font-family: cursive;
+    color: #ffffff;
+    background-color: darkgreen;
+    border-radius: 6px;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.boton:hover{
+   	color: darkgreen;
+	background-color: #ffffff;
+}
