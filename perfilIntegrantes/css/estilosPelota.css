@@ -10,22 +10,27 @@ h1{
 }
 
 body{
-	background-color: black;
+	background-color: #262626;
 	text-align: center;
 }
 
 .boton{
 	
 	position: relative;
-    text-decoration: none;
     padding: 10px;
     font-weight: 600;
     font-size: 16px;
-    color: #ffffff;
-    background-color: darkgreen;
-    border-radius: 6px;
+    font-family: cursive;
+    color: white;
+    background-color: #48C107;
+    border-radius: 50px;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    
 }
+
 .boton:hover{
-   	color: darkgreen;
-	background-color: #ffffff;
+   	color: white;
+	background-color: lightgreen;
 }

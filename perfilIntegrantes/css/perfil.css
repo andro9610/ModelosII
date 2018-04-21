@@ -1,10 +1,21 @@
 body{
-    background-color: black;
+    background-color: #262626;
     align-content: center;
     font-family: cursive;
     width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0;
+    padding: 0%;
+}
+
+div{
+    background-color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 5%;
+    padding-right: 5%;
+    width: 100%;
+    position absolute;
+    display: inline-block;
 }
 
 .imagen{
@@ -26,8 +37,9 @@ body{
 
 p{
     font-size: 20px;
-    color: whitesmoke;
+    color: black;
     text-align: center;
+
 }
 
 footer{
@@ -36,25 +48,29 @@ footer{
     color: whitesmoke;
     margin-left: auto;
     margin-right: auto;
+    bottom:1px; 
+    width:100%;  
+    text-align:right;
 }
 
 .Titulo{
-    color:green;
+    color:whitesmoke;
     font-size: 35px;
     text-align: center;
+    margin-left: 8%;
+    
 }
 
 .boton{
 	
 	position: relative;
-    text-decoration: none;
     padding: 10px;
     font-weight: 600;
     font-size: 16px;
     font-family: cursive;
-    color: #ffffff;
-    background-color: darkgreen;
-    border-radius: 6px;
+    color: white;
+    background-color: #48C107;
+    border-radius: 50px;
     display:block;
     margin-left: auto;
     margin-right: auto;
@@ -62,6 +78,6 @@ footer{
 }
 
 .boton:hover{
-   	color: darkgreen;
-	background-color: #ffffff;
+   	color: white;
+	background-color: lightgreen;
 }
