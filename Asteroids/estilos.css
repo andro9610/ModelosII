@@ -1,0 +1,43 @@
+tittle{
+    color:darkgray;
+}
+
+body{
+    font-family: cursive;
+    color:whitesmoke;
+    background: darkgray;
+    text-align: center;
+}
+
+canvas{
+    margin-left:-0.5%;
+    float:left;
+    background:whitesmoke;
+}
+
+footer {
+    position: absolute;
+    bottom: 30;
+    width: 99%;
+    height: 40px;
+}
+
+hr{
+    background: whitesmoke;
+    width:80%;
+}
+
+/*Personalizacion de las convenciones*/
+#Informacion{
+    margin-top:13%;
+    text-align:left;
+    float: left;
+}
+
+#puntos{
+    width:1%;
+}
+
+h2,h3{
+    text-align:center;
+}
