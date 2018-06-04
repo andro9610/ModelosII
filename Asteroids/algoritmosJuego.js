@@ -7,24 +7,24 @@ document.addEventListener("keyup",teclaSoltada,false);
 //Variables de juego
 var promedio = 3;
 var gradoDificultad = 1;
-
+var radioObjeto = 15;
 
 //Movimiento Estudiante
 var xEstudiante = 200;
 var yEstudiante = 200;
-var velEstudiante = 10;
+var velEstudiante = 6;
 
 //movimiento Enemigos
 var xProfeMalo = 300;
 var yProfeMalo = 300;
-var dxProfeMalo = 5;
-var dyProfeMalo = 5;
+var dxProfeMalo = 7;
+var dyProfeMalo = 7;
 
 //movimiento ProfeBuueno
 var xProfeBueno = 150;
 var yProfeBueno = 100;
-var dxProfeBueno = 10;
-var dyProfeBueno = 10;
+var dxProfeBueno = -9;
+var dyProfeBueno = 9;
 
 //variables de presion de teclas
 var derechaPresionada = false;
@@ -113,7 +113,7 @@ function moverProfeMalo(){
 //Funciones que dibujan al profe bueno
 function dibujarProfeBueno(){
     dibujar.beginPath();
-    dibujar.arc(xProfeBueno,yProfeBueno,15,0,Math.PI*2,false);
+    dibujar.arc(xProfeBueno,yProfeBueno,radioObjeto,0,Math.PI*2,false);
     dibujar.fillStyle = "darkBlue";
     dibujar.fill();
     dibujar.closePath();
@@ -122,7 +122,7 @@ function dibujarProfeBueno(){
 //Funcion que me dibuja a mi, el estudiante, y mi hermoso promedio de 5.0
 function dibujarEstudiante(){
     dibujar.beginPath();
-    dibujar.arc(xEstudiante,yEstudiante,15,0,Math.PI*2,false);
+    dibujar.arc(xEstudiante,yEstudiante,radioObjeto,0,Math.PI*2,false);
     dibujar.fillStyle = "lightgreen";
     dibujar.fill();
     dibujar.closePath();
@@ -130,30 +130,99 @@ function dibujarEstudiante(){
 //Funcion que dibuja a losprofes malos
 function dibujarProfeMalo(){
     dibujar.beginPath();
-    dibujar.arc(xProfeMalo,yProfeMalo,25,0,Math.PI*2,false);
+    dibujar.arc(xProfeMalo,yProfeMalo,radioObjeto,0,Math.PI*2,false);
     dibujar.fillStyle = "Red";
     dibujar.fill();
     dibujar.closePath();
 }
 //Detectores de perdida de puntaje
 function actualizarPuntaje(){
-    if(xEstudiante == xProfeMalo && yEstudiante == yProfeMalo && gradoDificultad< 0.1){
-        promedio -=1*gradoDificultad;
-        gradoDificultad -=0.001;
-        dxProfeMalo -= dxProfeMalo*gradoDificultad;
-        dyProfeMalo -= dyProfeMalo*gradoDificultad;
-
-        dxProfeBueno += dxProfeBueno*gradoDificultad;
-        dyProfeBueno += dyProfeBueno*gradoDificultad;
-    }else if(xEstudiante == xProfeBueno && yEstudiante == xProfeBueno && gradoDificultad< 0.1){
-        promedio +=1*gradoDificultad;
-        gradoDificultad +=0.001;
-        dxProfeMalo += dxProfeMalo*gradoDificultad;
-        dyProfeMalo += dyProfeMalo*gradoDificultad;
-
-        dxProfeBueno -= dxProfeBueno*gradoDificultad;
-        dxProfeBueno -= dxProfeBueno*gradoDificultad;
+    //Basicos
+    if((xEstudiante+(2*radioObjeto)) == xProfeMalo && yEstudiante == yProfeMalo){
+        perderPuntaje();
+    }else if((xEstudiante-(2*radioObjeto)) == xProfeMalo && yEstudiante == yProfeMalo){
+        perderPuntaje();
+    }else if(xEstudiante == xProfeMalo && (yEstudiante-2*radioObjeto) == yProfeMalo){
+        perderPuntaje();
+    }else if(xEstudiante == xProfeMalo && (yEstudiante+2*radioObjeto) == yProfeMalo){
+        perderPuntaje();
+    //Cruzados
+    }else if((xEstudiante +2*radioObjeto) == xProfeMalo && (yEstudiante+2*radioObjeto) == yProfeMalo){
+        perderPuntaje();
+    }else if((xEstudiante -2*radioObjeto) == xProfeMalo && (yEstudiante+2*radioObjeto) == yProfeMalo){
+        perderPuntaje();
+    }else if((xEstudiante+2*radioObjeto) ==yProfeMalo && (yEstudiante-2*radioObjeto) == xProfeMalo){
+        perderPuntaje();
+    }else if((xEstudiante-2*radioObjeto) ==yProfeMalo && (yEstudiante-2*radioObjeto) == xProfeMalo){
+        perderPuntaje();
+    //CompuestoH
+    }else if( (xEstudiante+2*radioObjeto) == xProfeMalo && (yEstudiante+radioObjeto) == yProfeMalo ){
+        perderPuntaje();
+    }else if( (xEstudiante-2*radioObjeto) == xProfeMalo && (yEstudiante+radioObjeto) == yProfeMalo ){
+        perderPuntaje();
+    }else if( (xEstudiante+2*radioObjeto) == xProfeMalo && (yEstudiante-radioObjeto) == yProfeMalo ){
+        perderPuntaje();
+    }else if( (xEstudiante-2*radioObjeto) == xProfeMalo && (yEstudiante-radioObjeto) == yProfeMalo ){
+        perderPuntaje();
+    //CompuestoV
+    }else if( (xEstudiante+radioObjeto) == xProfeMalo && (yEstudiante+2*radioObjeto) ==yProfeMalo ){
+        perderPuntaje();
+    }else if((xEstudiante-radioObjeto) == xProfeMalo && (yEstudiante+2*radioObjeto) ==yProfeMalo){
+        perderPuntaje();
+    }else if( (xEstudiante+radioObjeto) == xProfeMalo && (yEstudiante-2*radioObjeto) ==yProfeMalo ){
+        perderPuntaje();
+    }else if( (xEstudiante-radioObjeto) == xProfeMalo && (yEstudiante-2*radioObjeto) ==yProfeMalo ){
+        perderPuntaje();
     }
+    //ProfeBueno
+    //Basicos
+    if((xEstudiante+(2*radioObjeto)) == xProfeBueno && yEstudiante == yProfeBueno){
+        ganarPuntaje();
+    }else if((xEstudiante-(2*radioObjeto)) == xProfeBueno && yEstudiante == yProfeBueno){
+        ganarPuntaje();
+    }else if(xEstudiante == xProfeBueno && (yEstudiante-2*radioObjeto) == yProfeBueno){
+        ganarPuntaje();
+    }else if(xEstudiante == xProfeBueno && (yEstudiante+2*radioObjeto) == yProfeMalo){
+        ganarPuntaje();
+    //Cruzados
+    }else if((xEstudiante +2*radioObjeto) == xProfeBueno && (yEstudiante+2*radioObjeto) == yProfeBueno){
+        ganarPuntaje();
+    }else if((xEstudiante -2*radioObjeto) == xProfeBueno && (yEstudiante+2*radioObjeto) == yProfeBueno){
+        ganarPuntaje();
+    }else if((xEstudiante+2*radioObjeto) ==yProfeBueno && (yEstudiante-2*radioObjeto) == xProfeBueno){
+        ganarPuntaje();
+    }else if((xEstudiante-2*radioObjeto) ==yProfeBueno && (yEstudiante-2*radioObjeto) == xProfeBueno){
+        ganarPuntaje();
+    //CompuestoH
+    }else if( (xEstudiante+2*radioObjeto) == xProfeBueno && (yEstudiante+radioObjeto) == yProfeBueno ){
+        ganarPuntaje();
+    }else if( (xEstudiante-2*radioObjeto) == xProfeBueno && (yEstudiante+radioObjeto) == yProfeBueno ){
+        ganarPuntaje();
+    }else if( (xEstudiante+2*radioObjeto) == xProfeBueno && (yEstudiante-radioObjeto) == yProfeBueno ){
+        ganarPuntaje();
+    }else if( (xEstudiante-2*radioObjeto) == xProfeBueno && (yEstudiante-radioObjeto) == yProfeBueno ){
+        ganarPuntaje();
+    //CompuestoV
+    }else if( (xEstudiante+radioObjeto) == xProfeBueno && (yEstudiante+2*radioObjeto) ==yProfeBueno ){
+        ganarPuntaje();
+    }else if((xEstudiante-radioObjeto) == xProfeBueno && (yEstudiante+2*radioObjeto) ==yProfeBueno){
+        ganarPuntaje();
+    }else if( (xEstudiante+radioObjeto) == xProfeBueno && (yEstudiante-2*radioObjeto) ==yProfeBueno ){
+        ganarPuntaje();
+    }else if( (xEstudiante-radioObjeto) == xProfeBueno && (yEstudiante-2*radioObjeto) ==yProfeBueno ){
+        ganarPuntaje();
+    }
+}
+
+//funciones que calculan la perdida o ganancia de puntaje
+function perderPuntaje(){
+    promedio -=1*(10^gradoDificultad);
+    gradoDificultad--;
+}
+
+function ganarPuntaje(){
+    promedio +=1*(10^gradoDificultad);
+    gradoDificultad++;
 }
 
 //funcion que comprueba si el juego continua
@@ -163,6 +232,12 @@ function juegoContinua(){
     }else if(promedio >= 5){
         alert("Ganaste el semestre, las trasnochadas valieron la pena :v");
     }
+}
+
+function dibujarPuntaje() {
+    dibujar.font = "16px Cursive";
+    dibujar.fillStyle = "#0095DD";
+    dibujar.fillText("Nota: "+promedio, 8, 20);
 }
 
 //main
@@ -178,6 +253,7 @@ function ejecutarScript(){
     moverProfeBueno();
     moverProfeMalo();
     actualizarPuntaje();
+    dibujarPuntaje();
     juegoContinua();
 }
 

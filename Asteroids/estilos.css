@@ -1,25 +1,31 @@
 tittle{
-    color:darkgray;
+    visibility: hidden;
+    position:absolute;
 }
 
 body{
+    margin:0;
     font-family: cursive;
     color:whitesmoke;
-    background: darkgray;
+    background-image: url("https://detfom.files.wordpress.com/2014/08/fondo-negro-189535.jpg");
     text-align: center;
 }
 
 canvas{
-    margin-left:-0.5%;
     float:left;
-    background:whitesmoke;
+    background:black;
+    margin-left: 3%;
+    margin-top: 3%;
+    border-style: solid;
+    border-color: whitesmoke;
 }
 
 footer {
     position: absolute;
-    bottom: 30;
-    width: 99%;
+    bottom: 0;
+    width: 100%;
     height: 40px;
+    background-color: black;
 }
 
 hr{
@@ -29,15 +35,32 @@ hr{
 
 /*Personalizacion de las convenciones*/
 #Informacion{
-    margin-top:13%;
+    background-color: darkgray;
+    margin-right: 3%;
+    margin-top:3%;
     text-align:left;
-    float: left;
+    float: right;
+    width: 47%;
+    height: 63%;
 }
 
 #puntos{
-    width:1%;
+    width:2%;
 }
 
 h2,h3{
     text-align:center;
+}
+
+p{
+    margin: 3%;
+}
+
+#infoUtil{
+    background-color: black;
+}
+
+#tituloJuego{
+    background-color: black;
+    height: 10%;
 }
